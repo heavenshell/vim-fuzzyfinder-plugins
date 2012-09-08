@@ -136,9 +136,8 @@ function s:handler.onOpen(word, mode)
   else
     let item = s:findItem(fuf#loadDataFile(s:MODE_NAME, 'items'), a:word)
     if !empty(item)
-        execute ':cd ' . fnameescape(item.path)
         " Open dir by FufFile
-        execute ':FufFile'
+        execute ':FufFile ' . fnameescape(item.path)
     endif
   endif
 endfunction
